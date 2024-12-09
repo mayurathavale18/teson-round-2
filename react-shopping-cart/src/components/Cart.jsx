@@ -1,6 +1,6 @@
 import CartItem from './CartItem';
 
-export default function Cart({ cartItems, updateQuantity, removeFromCart }) {
+export default function Cart({ cartItems, updateQuantity, removeFromCart, incrementQuantity, decrementQuantity, handleEmpty }) {
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.quantity * item.price,
     0
@@ -19,6 +19,9 @@ export default function Cart({ cartItems, updateQuantity, removeFromCart }) {
               item={item}
               updateQuantity={updateQuantity}
               removeFromCart={removeFromCart}
+              incrementQuantity={incrementQuantity}
+              decrementQuantity={decrementQuantity}
+              handleEmpty={handleEmpty}
             />
           ))}
           <div className="text-right mt-4">

@@ -2,9 +2,8 @@
 import { Link, Route, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 
-export default function Navbar() {
-  const { pathname, handleShowShopButton, cartItems } = useCart(); // Access cartItems directly from context
-  const navigate = useNavigate()
+export default function Navbar({ navigate }) {
+  const { pathname, cartItems } = useCart(); // Access cartItems directly from context
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -13,19 +12,19 @@ export default function Navbar() {
         <Link to="/">
           <h1 className="text-lg font-bold">E-Commerce App</h1>
         </Link>
-          {pathname==="/cart" && <button
+        {pathname === "/cart" && (
+          <button
             type="button"
             className="text-lg text-black rounded-full p-2 bg-white font-bold transform 
                                         transition duration-400 
                                         hover:scale-105"
-          onClick={
-            () => {
-              navigate("/")
-              handleShowShopButton()
-              }
-          }>
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             Continue Shopping
-          </button>}
+          </button>
+        )}
       </div>
       <div className="relative">
         <a href="/cart" className="flex items-center space-x-2">
