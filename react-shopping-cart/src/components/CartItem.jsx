@@ -62,7 +62,7 @@ export default function CartItem({
   
           {/* Remove Button */}
           <button
-            className="bg-red-500 text-white ml-4 px-4 py-2 rounded"
+            className="bg-red-500 font-bold rounded-3xl text-white ml-4 px-4 py-2 rounded"
             onClick={() => removeFromCart(item.id, handleEmpty)}
           >
             Remove

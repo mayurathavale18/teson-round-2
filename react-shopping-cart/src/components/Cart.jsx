@@ -32,7 +32,7 @@ export default function Cart({
             />
           ))}
           <div className="text-right mt-4 p-4 bg-white rounded shadow-md">
-            <p className="text-xl font-bold font-mono">Total: ${totalPrice.toFixed(2)}</p>
+            <p className="text-xl font-bold font-mono">Total: <span className="font-mono font-bold text-blue-700">${totalPrice.toFixed(2)}</span></p>
           </div>
         </div>
       )}
