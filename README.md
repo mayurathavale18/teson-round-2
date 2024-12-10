@@ -114,6 +114,5 @@ Visit my deployed project : [React E-Commerce Cart Mangement](https://teson-roun
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
 
-## Final Deployed Project's URL :
 
 
