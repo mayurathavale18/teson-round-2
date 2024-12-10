@@ -21,6 +21,8 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+      localStorage.removeItem("cartItems"); // Clear local storage when cart is empty
     }
   }, [cartItems]);
 
@@ -52,7 +54,7 @@ export const CartProvider = ({ children }) => {
       return updatedCart;
     });
   };
-  
+
   const decrementQuantity = (productId) => {
     setCartItems((prevCartItems) => {
       const updatedCart = prevCartItems.map((item) => {
@@ -67,7 +69,6 @@ export const CartProvider = ({ children }) => {
       return updatedCart;
     });
   };
-  
 
   // Remove item from cart
   const removeFromCart = (productId, handleEmpty) => {
@@ -95,9 +96,9 @@ export const CartProvider = ({ children }) => {
   };
 
   const handleEmpty = () => {
-    console.log(cartItems.length)
-    cartItems.length === 1 && navigate("/")
-  }
+    console.log(cartItems.length);
+    cartItems.length === 1 && navigate("/");
+  };
 
   return (
     <CartContext.Provider
@@ -109,7 +110,7 @@ export const CartProvider = ({ children }) => {
         decrementQuantity,
         updateQuantity,
         pathname,
-        handleEmpty
+        handleEmpty,
       }}
     >
       {children}
