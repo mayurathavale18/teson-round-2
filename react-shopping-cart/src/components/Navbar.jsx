@@ -7,7 +7,7 @@ export default function Navbar({ navigate }) {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <nav className="p-3 pl-6 pr-3 mb-5 pr-6 mx-3 relative top-2 bg-slate-900 text-white flex justify-between items-center rounded-full shadow-xl">
+    <nav className="p-3 pl-6 pr-3 mb-5 pr-6 mx-3 relative top-2 bg-slate-900 text-white text-sm flex justify-between items-center rounded-full shadow-xl">
       <div className="flex gap-7 items-center">
         <Link
           to="/"
@@ -18,7 +18,7 @@ export default function Navbar({ navigate }) {
         {pathname === "/cart" && (
           <button
             type="button"
-            className="text-lg text-black rounded-full p-2 bg-white font-bold shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg"
+            className="text-sm sm:text-lg text-black rounded-full p-2 bg-white font-bold shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg"
             onClick={() => navigate("/")}
           >
             Continue Shopping
@@ -30,7 +30,7 @@ export default function Navbar({ navigate }) {
           href="/cart"
           className="flex items-center space-x-2 hover:text-gray-300 transition"
         >
-          <p className="p-2 font-bold text-white text-md">My Cart</p>
+          <p className="p-2 font-bold text-white text-sm sm:text-md">My Cart</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -46,7 +46,7 @@ export default function Navbar({ navigate }) {
             />
           </svg>
           {totalItems > 0 && (
-            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-3 w-3 flex items-center justify-center">
+            <span className="absolute top-0 right-0 bg-red-500 text-white text-xsm rounded-full h-3.5 w-3.5 flex items-center justify-center">
               {totalItems}
             </span>
           )}
